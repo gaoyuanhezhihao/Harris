@@ -84,7 +84,8 @@ void cornerHarris_demo(int thres)
 	int nRows = IxIy.rows;
 	int nCols = IxIy.cols;
 	double debug_max = 0;
-	double det_tmp = 0;
+	double det = 0;
+	double trac = 0;
 	for (i=0; i< nRows; ++i)
 	{
 		p_IxIx = IxIx.ptr<float>(i);
@@ -93,17 +94,23 @@ void cornerHarris_demo(int thres)
 		for (j = 0; j < nCols; ++j)
 		{
 			//Mat H_mat = (Mat_<float>(2, 2) << *it_IxIx++,*it_IxIy, *it_IxIy++ , *it_IyIy++);
-			Mat H_mat(2, 2, CV_32FC1);
-			H_mat.at<float>(0, 0) = *(it_IxIx++);
-			H_mat.at<float>(0, 1) = *it_IxIy;
-			H_mat.at<float>(1, 0) = *(it_IxIy++);
-			H_mat.at<float>(1, 1) = *(it_IyIy++);
-			//cout << H_mat << endl;
-			PCA h_pca(H_mat, Mat(), CV_PCA_DATA_AS_ROW, 0);
-			lambda = h_pca.eigenvalues;
-			R = lambda.at<float>(0) * lambda.at<float>(1) / (lambda.at<float>(0) + lambda.at<float>(1));
+			//Mat H_mat(2, 2, CV_32FC1);
+			//H_mat.at<float>(0, 0) = *(it_IxIx++);
+			//H_mat.at<float>(0, 1) = *it_IxIy;
+			//H_mat.at<float>(1, 0) = *(it_IxIy++);
+			//H_mat.at<float>(1, 1) = *(it_IyIy++);
+			////cout << H_mat << endl;
+			//PCA h_pca(H_mat, Mat(), CV_PCA_DATA_AS_ROW, 0);
+			//lambda = h_pca.eigenvalues;
+			//R = lambda.at<float>(0) * lambda.at<float>(1) / (lambda.at<float>(0) + lambda.at<float>(1));
+			
 			R_mat.at<float>(i, j) = R;
-
+			det = *it_IxIx * *it_IyIy - *it_IxIy * *it_IxIy;
+			trac = *it_IxIx + *it_IyIy;
+			R = det / trac;
+			++it_IxIx;
+			++it_IxIy;
+			++it_IyIy;
 			if (R > debug_max)
 			{
 				cout << "lambda:" << lambda << endl;
@@ -117,7 +124,6 @@ void cornerHarris_demo(int thres)
 				circle(src_gray, Point(j, i), 5, Scalar(0), 2, 8, 0);
 				//cout << "get one harris" << endl;
 			}
-			
 		}
 	}
 	cout << "size of element:" << sizeof(IyIy.at<float>(0,0)) << endl;
