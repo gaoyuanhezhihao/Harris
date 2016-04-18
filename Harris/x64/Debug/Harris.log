@@ -1,0 +1,19 @@
+﻿Build started 2016/3/21 22:00:23.
+     1>Project "G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\Harris\Harris.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program_Programming\VS2013_Community\VC\bin\x86_amd64\CL.exe /c /IG:\Study\OpenCV3\opencv\build\x64\vc12\..\..\include /Zi /nologo /W3 /WX- /sdl /Od /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt main.cpp
+         main.cpp
+     1>G:\Study\OpenCV3\opencv\build\include\opencv2/core/mat.hpp(1965): warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>G:\Study\OpenCV3\opencv\build\include\opencv2/core/persistence.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>G:\Study\OpenCV3\opencv\build\include\opencv2/core/utility.hpp : warning C4819: The file contains a character that cannot be represented in the current code page (936). Save the file in Unicode format to prevent data loss
+     1>main.cpp(99): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>main.cpp(55): warning C4101: 'trace_tmp' : unreferenced local variable
+       Link:
+         D:\Program_Programming\VS2013_Community\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\x64\Debug\Harris.exe" /INCREMENTAL /NOLOGO /LIBPATH:G:\Study\OpenCV3\opencv\build\x64\vc12\lib opencv_world310d.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\x64\Debug\Harris.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\x64\Debug\Harris.lib" /MACHINE:X64 x64\Debug\harris.obj
+         x64\Debug\main.obj
+         Harris.vcxproj -> G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\x64\Debug\Harris.exe
+     1>Done Building Project "G:\Study\Gradute Course\Image Understanding\Project\Features\Harris\Harris\Harris.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.84
